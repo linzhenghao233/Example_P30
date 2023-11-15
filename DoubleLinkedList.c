@@ -73,3 +73,23 @@ int DLDelete(DLinkList* DL, int i) {
 
 	return true;
 }
+
+//在双向循环链表中删除结点
+int DLClist(DLinkList* DL, ElemType e) {
+	DLinkList* temp;
+	temp->next;
+
+	if (temp->next == temp)
+		return false;
+	while (temp->data != e && temp != DL)
+		temp = temp->next;
+	if (temp != DL) {
+		temp->prior->next = temp->next;
+		temp->next->prior = temp->prior;
+		free(temp);
+
+		return true;
+	}
+	else
+		return false;
+}
